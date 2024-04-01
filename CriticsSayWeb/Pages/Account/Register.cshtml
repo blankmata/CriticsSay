@@ -1,48 +1,90 @@
-﻿@page
-@model CriticsSayWeb.Pages.Account.RegisterModel
-@{
-}
-<form method="post">
-    <div class="row text-danger" asp-validation-summary="All"></div>
-    <div class="row m-2">
-        <div class="col-2">
-            <label asp-for="NewPerson.FirstName" class="form-label"></label>
+﻿    @page
+    @model CriticsSayWeb.Pages.Account.RegisterModel
+    @{
+    }
+<div class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <!-- Images -->
+            <div class="col-md-4">
+                <!-- Movie poster image 1 -->
+            <img src="https://www.movieposters.com/cdn/shop/products/67fa5fbafea19b1cdd051a50c8aa090e_31fb1905-5a09-445c-b51f-602cabbbbe7f_480x.progressive.jpg?v=1573651201" alt="Transformers movie poster" class="img-fluid mb-2" width="200" height="400" />
+                <!-- Movie poster image 2 -->
+                <br />
+            <img src="https://www.movieposters.com/cdn/shop/files/heat.mpw.119090_480x.progressive.jpg?v=1708452299" alt="Heat movie poster" class="img-fluid mb-2" width="200" height="400"/>
+            </div>
+
+            <!-- Register Form -->
+            <div class="col-md-4">
+                <form method="post" class="border p-4 bg-light">
+                    <div class="text-danger" asp-validation-summary="All"></div>
+
+                    <!-- Register Title -->
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-12 text-center mb-4">
+                            <h2>Register</h2>
+                        </div>
+                    </div>
+
+                    <!-- First Name -->
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-md-12 text-center">
+                            <label asp-for="NewPerson.FirstName" class="form-label"></label>
+                            <input type="text" class="form-control " asp-for="NewPerson.FirstName" /> 
+                            <span asp-validation-for="NewPerson.FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-md-12 text-center">
+                            <label asp-for="NewPerson.LastName" class="form-label"></label>
+                            <input type="text" class="form-control " asp-for="NewPerson.LastName" /> 
+                            <span asp-validation-for="NewPerson.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-md-12 text-center">
+                            <label asp-for="NewPerson.Email" class="form-label"></label>
+                            <input type="email" class="form-control " asp-for="NewPerson.Email" /> 
+                            <span asp-validation-for="NewPerson.Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-md-12 text-center">
+                            <label asp-for="NewPerson.Password" class="form-label"></label>
+                            <input type="password" class="form-control" asp-for="NewPerson.Password" /> 
+                            <span asp-validation-for="NewPerson.Password" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Register Button -->
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-6 text-center">
+                            <button id="btnRegister" class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+
+                    <!-- Already have an account? -->
+                    <div class="row m-2 justify-content-center">
+                        <div class="col-6 text-center">
+                            <p>Already have an account? <br /> <a href="/Account/Login">Sign in</a></p> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        <!-- Images -->
+        <div class="col-md-4">
+            <div class="text-end">
+                <!-- Movie poster image 3 -->
+                <img src="https://www.movieposters.com/cdn/shop/files/spiderman_across_the_spiderverse_ver36_xlg_480x.progressive.jpg?v=1690298757" alt="Across spiderverse movie poster" class="img-fluid mb-2" width="200" height="400" />
+                <!-- Movie poster image 4 -->
+                <br />
+                <img src="https://www.movieposters.com/cdn/shop/files/122a0d84d865d179d72b9b42c53d24e5_55027e72-c372-41ef-8355-fa45bb4cf338_480x.progressive.jpg?v=1707243408" alt="great gatsby poster" class="img-fluid mb-2" width="200" height="400" />
+            </div>
         </div>
-        <div class="col-10">
-            <input type="text" class="form-control" asp-for="NewPerson.FirstName" />
-            <span asp-validation-for="NewPerson.FirstName" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row m-2">
-        <div class="col-2">
-            <label asp-for="NewPerson.LastName" class="form-label"></label>
-        </div>
-        <div class="col-10">
-            <input type="text" class="form-control" asp-for="NewPerson.LastName" />
-            <span asp-validation-for="NewPerson.LastName" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row m-2">
-        <div class="col-2">
-            <label asp-for="NewPerson.Email" class="form-label"></label>
-        </div>
-        <div class="col-10">
-            <input type="email" class="form-control" asp-for="NewPerson.Email" />
-            <span asp-validation-for="NewPerson.Email" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row m-2">
-        <div class="col-2">
-            <label asp-for="NewPerson.Password" class="form-label"></label>
-        </div>
-        <div class="col-10">
-            <input type="password" class="form-control" asp-for="NewPerson.Password" />
-            <span asp-validation-for="NewPerson.Password" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row m-2">
-        <div class="col-2">
-            <button id="btnRegister" class="btn-primary">Register</button>
-        </div>
-    </div>
-</form>
+</div>

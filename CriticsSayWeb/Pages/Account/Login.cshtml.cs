@@ -13,24 +13,39 @@ namespace CriticsSayWeb.Pages.Account
         public void OnGet()
         {
         }
-        
-        public ActionResult OnPost() {
+
+        public ActionResult OnPost()
+        {
             if (ModelState.IsValid)
             {
-                SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnection());
-                string cmdText = "SELECT Password FROM Person WHERE Email=@email";
-                SqlCommand cmd = new SqlCommand(cmdText, conn);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.HasRows)
+                using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnection()))
                 {
-                    reader.Read();
-                    if (!reader.IsDBNull(0))
+                    string cmdText = "SELECT Password FROM Person WHERE Email=@email";
+                    using (SqlCommand cmd = new SqlCommand(cmdText, conn))
                     {
-                        string passwordHash = reader.GetString(0);
-                        if (SecurityHelper.VerifyPasswordHash(LoginUser.Password, passwordHash))
+                        cmd.Parameters.AddWithValue("@email", LoginUser.Email);
+                        conn.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
                         {
-                            return RedirectToPage("Profile");
+                            reader.Read();
+                            if (!reader.IsDBNull(0))
+                            {
+                                string passwordHash = reader.GetString(0);
+                                if (SecurityHelper.VerifyPasswordHash(LoginUser.Password, passwordHash))
+                                {
+                                    return RedirectToPage("Profile");
+                                }
+                                else
+                                {
+                                    ModelState.AddModelError("LoginError", "Invalid Credentials, try again.");
+                                    return Page();
+                                }
+                            }
+                            else
+                            {
+                                return Page();
+                            }
                         }
                         else
                         {
@@ -38,18 +53,7 @@ namespace CriticsSayWeb.Pages.Account
                             return Page();
                         }
                     }
-                    else
-                    {
-                        return Page();
-                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("LoginError", "Invalid Credentials, try again.");
-                    return Page();
-                }
-
-                conn.Close();
             }
             else
             {

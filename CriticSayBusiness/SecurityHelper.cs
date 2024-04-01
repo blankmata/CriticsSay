@@ -17,6 +17,6 @@ namespace CriticSayBusiness
         {
             string connString = "Server=(localdb)\\MSSQLLocalDB;Database=CriticSay;Trusted_Connection=true;";
             return connString;
-        }
+        }   
     }
 }

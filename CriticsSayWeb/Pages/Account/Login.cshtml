@@ -2,29 +2,68 @@
 @model CriticsSayWeb.Pages.Account.LoginModel
 @{
 }
-<form method="post">
-    <div class="row text-danger" asp-validation-summary="All"></div>
-    <div class="row m-2">
-        <div class="col-2">
-            <label class="form-label" asp-for="LoginUser.Email"></label>
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+        <!-- Images -->
+        <div class="col-md-4">
+            <!-- Movie poster image 1 -->
+            <img src="https://www.movieposters.com/cdn/shop/products/c11f66ec0451a36f5aae494b1509b069_bf869227-c34a-449c-83ff-ed093d341dd3_480x.progressive.jpg?v=1573616179" alt="jaws movie poster" class="img-fluid mb-2" width="200" height="400" />
+            <!-- Movie poster image 2 -->
+            <br />
+            <img src="https://www.movieposters.com/cdn/shop/files/dune-part-two_tidfhvjl_480x.progressive.jpg?v=1708544824" alt="dune 2 poster" class="img-fluid mb-2" width="200" height="400" />
         </div>
-        <div class="col-10">
-            <input type="email" class="form-control" asp-for="LoginUser.Email"/>
-            <span asp-validation-for="LoginUser.Email" class="text-danger"></span>
+
+        <!-- Login Form -->
+        <div class="col-md-4">
+            <form method="post">
+                <div class="text-danger" asp-validation-summary="All"></div>
+
+                <!-- Sign In Title -->
+                <div class="row m-2 justify-content-center">
+                    <div class="col-12 text-center mb-4">
+                        <h2>Sign in</h2>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="row m-2 justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <label asp-for="LoginUser.Email" class="form-label"></label>
+                        <input type="email" class="form-control" asp-for="LoginUser.Email" />
+                        <span asp-validation-for="LoginUser.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="row m-2 justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <label asp-for="LoginUser.Password" class="form-label"></label>
+                        <input type="password" class="form-control" asp-for="LoginUser.Password" />
+                        <span asp-validation-for="LoginUser.Password" class="text-danger"></span>
+                        <div class="mt-2">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Button -->
+                <div class="row m-2 justify-content-center">
+                    <div class="col-6 text-center">
+                        <button id="btnLogin" class="btn btn-primary">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Images -->
+        <div class="col-md-4">
+            <div class="text-end">
+                <!-- Movie poster image 3 -->
+                <img src="https://www.movieposters.com/cdn/shop/products/starship-troopers_99220415_480x.progressive.jpg?v=1631639367" alt="starship troopers poster" class="img-fluid mb-2" width="200" height="400" />
+                <!-- Movie poster image 4 -->
+                <br />
+                <img src="https://www.movieposters.com/cdn/shop/products/scan_d0daaf40-370c-429a-867c-558636d4231b_480x.progressive.jpg?v=1674232382" alt="bullet train poster" class="img-fluid mb-2" width="200" height="400" />
+            </div>
         </div>
     </div>
-    <div class="row m-2">
-        <div class="col-2">
-            <label class="form-label" asp-for="LoginUser.Password"></label>
-        </div>
-        <div class="col-10">
-            <input type="password" class="form-control" asp-for="LoginUser.Password"/>
-            <span asp-validation-for="LoginUser.Password" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row m-2">
-        <div class="col-2">
-            <button id="btnLogin" class="btn-primary">Sign in</button>
-        </div>
-    </div>
-</form>
+</div>
