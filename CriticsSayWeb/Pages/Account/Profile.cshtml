@@ -1,29 +1,4 @@
 ﻿@page
 @model CriticsSayWeb.Pages.Account.ProfileModel
 @{
-    Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthenticate" : "_Layout";
 }
-<div class="row m-2">
-    <div class="col-2">
-        First Name:
-    </div>
-    <div class="col-10">
-        <label asp-for="profile.FirstName"></label>
-    </div>
-</div>
-<div class="row m-2">
-    <div class="col-2">
-        Last Name:
-    </div>
-    <div class="col-10">
-        <label asp-for="profile.LastName"></label>
-    </div>
-</div>
-<div class="row m-2">
-    <div class="col-2">
-        Email:
-    </div>
-    <div class="col-10">
-        <label asp-for="profile.Email"></label>
-    </div>
-</div>

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CriticsSayWeb", "CriticsSay
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CriticsSayDB", "CriticsSayDB\CriticsSayDB.sqlproj", "{AC788CDD-E248-4868-9A9B-54D79AAE1C49}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CriticSayBusiness", "CriticSayBusiness\CriticSayBusiness.csproj", "{658BACEF-FE25-4C37-BEB3-2463DD21E4B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CriticSayBusiness", "CriticSayBusiness\CriticSayBusiness.csproj", "{658BACEF-FE25-4C37-BEB3-2463DD21E4B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
