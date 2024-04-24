@@ -3,12 +3,12 @@
 @model CriticsSayWeb.Pages.Movies.ViewMoviesModel
 @{
     Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthenticate" : "_Layout";
-
 }
+
 <form method="post" class="form-group">
     <div class="row m-2">
         <div class="col-2">
-            <label class="form-label">Genre</label>
+            <label class="form-label text-light">Genre</label>
         </div>
         <div class="col-8">
             <select asp-for="SelectGenreId" asp-items="Model.Genres"></select>
@@ -17,57 +17,20 @@
             <button class="btn btn-primary" id="btnView">Display</button>
         </div>
     </div>
-    @foreach (var movieModel in Model.MovieModel)
-    {
-        <!-- movie title -->
-        <div class="row m-2 border">
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@movieModel.MovieTitle"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@movieModel.MovieTitle</label>
-                </div>
-            </div>
-        </div>
-        <!--movie descr-->
-        <div class="row m-2 border">
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@movieModel.MovieDescription"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@movieModel.MovieDescription</label>
+    <div class="row">
+        @foreach (var movieModel in Model.MovieModel)
+        {
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="@movieModel.MoviePoster" class="card-img-top" alt="Movie Poster" style="height: 400px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@movieModel.MovieTitle</h5>
+                        <p class="card-text">@movieModel.MovieDescription</p>
+                        <p class="card-text"><small class="text-muted">Release Date: @movieModel.ReleaseDate.ToShortDateString()</small></p>
+                        <a asp-page="EditMovie" asp-route-id="@movieModel.MovieId" class="btn btn-primary">Edit</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--releasedate-->
-        <div class="row m-2 border">
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@movieModel.ReleaseDate"></label>
-                </div>
-                <div class="col-10">
-                    <label class="form-label">@movieModel.ReleaseDate</label>
-                </div>
-            </div>
-        </div>
-        <!--poster-->
-        <div class="row m-2 border">
-            <div class="row m-2">
-                <div class="col-2">
-                    <label class="form-label" asp-for="@movieModel.MoviePoster"></label>
-                </div>
-                <div class="col-10">
-                    <img src="@movieModel.MoviePoster" alt="Movie Poster" class="img-fluid" />
-                </div>
-            </div>
-        </div>
-        <!-- edit btn-->
-        <div class="row m-2">
-            <div class="col-2">
-                <a asp-page="EditMovie" asp-route-id="@movieModel.MovieId" class="btn btn-primary">Edit</a>
-            </div>
-        </div>
-    }
+        }
+    </div>
 </form>

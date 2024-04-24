@@ -3,10 +3,88 @@
 @{
     ViewData["Title"] = "Home page";
     Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthenticate" : "_Layout";
-
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to CriticsSay</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    /* Custom CSS styles */
+    .custom-heading {
+        font-family: 'Arial', sans-serif; /* Change font family */
+        color: #f77e05; /* Change text color to blue */
+    }
+
+    .custom-paragraph {
+        font-family: 'Arial', sans-serif; /* Change font family */
+        color: #333; /* Change text color to dark gray */
+    }
+
+    /* Container for movies */
+    .movie-container {
+        margin-top: 20px;
+    }
+
+    /* Style for individual movie */
+    .movie-card {
+        display: inline-block;
+        margin-right: 10px; /* Reduce right margin */
+        margin-bottom: 20px;
+        width: calc(20% - 40px); /* Adjust the width to fit 5 movies in a row */
+        vertical-align: top;
+    }
+
+    /* Style for movie image */
+    .movie-image {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center border p-4 bg-light">
+                <h1 class="display-4 mb-4 custom-heading">Welcome to <span style="border: 2px solid rgb(247, 240, 121); padding: 5px; background-color: rgb(247, 240, 121); font-style:italic; font-family:'Comic Sans MS'">Critics Say</span></h1>
+                <p class="custom-paragraph">The best website to track the movies you've watched and want to watch!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Container -->
+    <div class="row justify-content-around movie-container">
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/23fd3ba334c1e8e84c96906497d577bf_6d652cf7-d705-42d2-96aa-2c3963f8a178_480x.progressive.jpg?v=1573613876" alt="Movie 1" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/108b520c55e3c9760f77a06110d6a73b_e97cf224-d57f-44e3-8477-4f5479cd746b_480x.progressive.jpg?v=1573616089" alt="Movie 2" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/onceuponatimehollywood.flo.ar_480x.progressive.jpg?v=1597169428" alt="Movie 3" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/950e439404c3d5eddd86ae876cec83bf_949b5045-2503-4883-bcd2-ff1f31f5b14c_480x.progressive.jpg?v=1573588746" alt="Movie 4" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/ice_age_five_ver2_480x.progressive.jpg?v=1614190680" alt="Movie 5" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/4c177c2b7f7bb9a679f089bcb50f844e_3e89eb5d-ffbd-4033-a00f-e595a3ef2e2a_480x.progressive.jpg?v=1573587540" alt="Movie 6" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/5cae019e64c0ee10ead36a00e60f0137_eeb2d749-fdbe-46fd-978a-870cc7e0ddf7_480x.progressive.jpg?v=1573593942" alt="Movie 7" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/82b292f7738237dc7b0c2da426e86c4e_85ebc490-348e-4bfd-90ad-1c32a6423b90_480x.progressive.jpg?v=1573585473" alt="Movie 8" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/products/c86a76819022e173e45815007c053217_72df0b75-6dde-4f48-8e4d-05be9c912f58_480x.progressive.jpg?v=1573616009" alt="Movie 9" class="movie-image" />
+        </div>
+        <div class="movie-card">
+            <img src="https://www.movieposters.com/cdn/shop/files/everything-everywhere-all-at-once_480x.progressive.jpg?v=1709325442" alt="Movie 10" class="movie-image" />
+        </div>
+    </div>
+    <!-- Register Button -->
+    <div class="row m-2 justify-content-center">
+        <div class="col-6 text-center">
+            <a href="/Account/Register" class="btn btn-primary">Register an Account Now!</a>
+        </div>
+    </div>
 </div>

@@ -12,9 +12,11 @@ namespace CriticsSayWeb.Pages.Model
         [Display(Name  = "Last Name ")]
         public string? LastName { get; set; }
         [Required(ErrorMessage = "An email is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email address.")]
         [Display(Name = "Email ")]
         public string? Email { get; set; }
         [Required(ErrorMessage = "A password is required")]
+        [MinLength(10, ErrorMessage = "The password must be at least 10 characters long.")]
         [Display(Name = "Password ")]
         public string? Password { get; set; }
         public DateTime LastLoginTime { get; set; }
