@@ -46,6 +46,7 @@ namespace CriticsSayWeb.Pages.Movies
                         item.MovieDescription = reader.GetString(1);
                         item.ReleaseDate = reader.GetDateTime(2);
                         item.MoviePoster = reader.GetString(3);
+                        item.MovieId = reader.GetInt32(4);
                         MovieModel.Add(item);
                     }
                 }
