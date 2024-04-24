@@ -41,7 +41,7 @@ namespace CriticsSayWeb.Pages.Account
                 SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnection());
                 // 2. Create an insert command
       
-            }
+            }   
             else
             {
                 return Page();
