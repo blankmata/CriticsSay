@@ -1,0 +1,60 @@
+﻿@page
+@using CriticsSayWeb.Pages.Model
+@model CriticsSayWeb.Pages.Movies.EditMovieModel
+@{
+}
+<form method="post" class="form-group" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row m-2">
+        <div class="col-2">
+            <h2>Edit Movie Info</h2>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="MovieModel.MovieTitle"></label>
+        </div>
+        <div>
+            <input type="text" class="form-control" asp-for="MovieModel.MovieTitle" />
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="MovieModel.MovieDescription"></label>
+        </div>
+        <div>
+            <textarea class="form-control" asp-for="MovieModel.MovieDescription"></textarea>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="MovieModel.ReleaseDate"></label>
+        </div>
+        <div>
+            <input type="date" class="form-control" asp-for="MovieModel.ReleaseDate" />
+        </div>
+    </div>
+    <div class="row m-2">
+        <!-- here should be genre-->
+        <div class="col-2">
+            <label asp-for="MovieModel.GenreId"></label>
+        </div>
+        <div>
+            <select asp-for="MovieModel.GenreId" asp-items="@Model.Genres"></select>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="MovieModel.MoviePoster"></label>
+        </div>
+        <div>
+            <input type="text" class="form-control" asp-for="MovieModel.MoviePoster" />   
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <input type="submit" value="Update" class="btn btn-primary"/>
+            <!-- <input type="submit" value="Cancel" class="btn btn-secondary" asp-page-handler="Cancel" /> --> 
+        </div>
+    </div>
+</form>

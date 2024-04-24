@@ -1,0 +1,52 @@
+﻿@page
+@model CriticsSayWeb.Pages.Movies.AddMovieModel
+@{
+}
+<form method="post" class="form-group" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row m-2">  
+        <div class="col-2">
+            <label asp-for="newMovieModel.MovieTitle"></label>
+        </div>
+        <div>
+            <input type="text" class="form-control" asp-for="newMovieModel.MovieTitle" />
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="newMovieModel.MovieDescription"></label>
+        </div>
+        <div>
+            <textarea class="form-control" asp-for="newMovieModel.MovieDescription"></textarea>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="newMovieModel.ReleaseDate"></label>
+        </div>
+        <div>
+            <input type="date" class="form-control" asp-for="newMovieModel.ReleaseDate" />
+        </div>
+    </div>
+    <div class="row m-2">               <!-- here should be genre-->
+        <div class="col-2">
+            <label asp-for="newMovieModel.GenreId"></label>
+        </div>
+        <div>
+            <select asp-for="newMovieModel.GenreId" asp-items="@Model.Genres"></select>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <label asp-for="newMovieModel.MoviePoster"></label>
+        </div>
+        <div>
+            <input type="text" class="form-control" asp-for="newMovieModel.MoviePoster" />
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-2">
+            <button type="submit" id="btnAdd" class="btn btn-primary">Add Movie to List</button>
+        </div>
+    </div>
+</form>

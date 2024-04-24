@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,9 +22,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
+                        <!--  
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+                        -->
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Account/Login">Sign in</a>
                         </li>
@@ -35,7 +37,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Account/Profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Account/ViewMovieItems">MovieList</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Movies/AddMovie">Add Movie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Movies/ViewMovies">WatchList</a>
+
                         </li>
                     </ul>
                 </div>
@@ -48,7 +54,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color: lightgray; text-align: center">
         <div class="container">
             &copy; 2024 - CriticsSay - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>

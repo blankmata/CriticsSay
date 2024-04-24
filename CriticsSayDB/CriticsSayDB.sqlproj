@@ -65,9 +65,11 @@
     <Build Include="dbo\Tables\Role.sql" />
     <Build Include="dbo\Tables\Person.sql" />
     <Build Include="dbo\Tables\Friend.sql" />
-    <Build Include="dbo\Tables\MovieGenre.sql" />
     <Build Include="dbo\Tables\Movie.sql" />
     <Build Include="dbo\Tables\Genre.sql" />
+    <Build Include="dbo\Tables\Review.sql" />
+    <Build Include="dbo\Tables\PersonReview.sql" />
+    <Build Include="dbo\Tables\List.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PopulateDB.sql" />
