@@ -1,6 +1,7 @@
 ﻿@page
 @model CriticsSayWeb.Pages.Account.LoginModel
 @{
+    Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthenticate" : "_Layout";
 }
 <div class="container-fluid">
     <div class="row justify-content-center align-items-center">

@@ -15,7 +15,7 @@ namespace CriticsSayWeb.Pages.Account
         public Login LoginUser { get; set; }
         public void OnGet()
         {
-        }
+        } 
 
         public ActionResult OnPost()
         {
@@ -50,6 +50,7 @@ namespace CriticsSayWeb.Pages.Account
                     cmd.Parameters.AddWithValue("@email", LoginUser.Email);
                     conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
+
                     if (reader.HasRows)
                     {
                         reader.Read();

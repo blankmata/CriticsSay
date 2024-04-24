@@ -7,7 +7,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.Cookie.Name = "MyKitchenCookie";
+        options.Cookie.Name = "MyMovieCookie";
         options.LoginPath = "/Account/Login";
     });
 

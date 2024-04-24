@@ -2,6 +2,8 @@
 @using CriticsSayWeb.Pages.Model
 @model CriticsSayWeb.Pages.Movies.EditMovieModel
 @{
+    Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthenticate" : "_Layout";
+
 }
 <form method="post" class="form-group" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
