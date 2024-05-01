@@ -21,23 +21,31 @@
         <div class="col-md-9 personal-info">
             <h3>Personal info</h3>
 
-            <form class="form-horizontal" role="form">
+            <form method="post">
                 <div class="form-group">
                     <label class="col-lg-3 control-label">First name:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="@Model.profile.FirstName">
+                        <input class="form-control" asp-for="Profile.FirstName">
+                        <span asp-validation-for="Profile.FirstName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Last name:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="@Model.profile.LastName">
+                        <input class="form-control" asp-for="Profile.LastName">
+                        <span asp-validation-for="Profile.LastName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Email:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" type="text" value="@Model.profile.Email">
+                        <input class="form-control" asp-for="Profile.Email">
+                        <span asp-validation-for="Profile.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-8 col-lg-offset-3">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                 </div>
             </form>
