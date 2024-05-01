@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace CriticsSayWeb.Pages.Model
 {
+
+
     public class Person
     {
         public int? PersonId { get; set; }

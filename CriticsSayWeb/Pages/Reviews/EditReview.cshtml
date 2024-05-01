@@ -1,0 +1,84 @@
+﻿@page
+@model CriticsSayWeb.Pages.Reviews.EditReviewModel
+@{
+    Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthenticate" : "_Layout";
+}
+
+<style>
+    /* Custom CSS styles */
+    .container-fill {
+        background-color: #f0f0f0; /* Light gray color */
+        padding: 20px; /* Add some padding for spacing */
+        border-radius: 5px; /* Add rounded corners */
+    }
+</style>
+
+<div class="container-fill">
+    <form method="post" class="form-group">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row m-2">
+            <div class="col-2">
+                <h2>Edit Review</h2>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-2">
+                <label asp-for="ReviewModel.ReviewContent"></label>
+            </div>
+            <div>
+                <textarea class="form-control" asp-for="ReviewModel.ReviewContent"></textarea>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-2">
+                <label asp-for="ReviewModel.DatePosted"></label>
+            </div>
+            <div>
+                <input type="date" class="form-control" asp-for="ReviewModel.DatePosted" />
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-2">
+                <label>Rating</label>
+            </div>
+            <div class="col-10">
+                <div class="rating">
+                    <span class="star" data-rating="1"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="2"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="3"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="4"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="5"><i class="bi bi-star"></i></span>
+                </div>
+                <input type="hidden" name="ReviewModel.Rating" id="rating-value" value="@Model.ReviewModel.Rating" />
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-2">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // JavaScript for rating stars
+        document.addEventListener("DOMContentLoaded", function () {
+            const stars = document.querySelectorAll('.star');
+            const ratingValue = document.getElementById('rating-value');
+            stars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const rating = this.getAttribute('data-rating');
+                    ratingValue.value = rating;
+                    stars.forEach(s => {
+                        if (s.getAttribute('data-rating') <= rating) {
+                            s.innerHTML = '<i class="bi bi-star-fill"></i>';
+                        } else {
+                            s.innerHTML = '<i class="bi bi-star"></i>';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}

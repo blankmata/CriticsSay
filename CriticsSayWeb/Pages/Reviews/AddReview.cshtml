@@ -1,0 +1,97 @@
+﻿@page
+@model CriticsSayWeb.Pages.Reviews.AddReviewModel
+@{
+    Layout = HttpContext.User.Identity.IsAuthenticated ? "_LayoutAuthenticate" : "_Layout";
+}
+
+<style>
+    /* Custom CSS styles */
+    .container-fill {
+        background-color: #f0f0f0; /* Light gray color */
+        padding: 20px; /* Add some padding for spacing */
+        border-radius: 5px; /* Add rounded corners */
+    }
+</style>
+
+<div class="container-fill">
+    <form method="post" class="form-group">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <!-- Movie Title -->
+        <div class="row m-2">
+            <div class="col-2">
+                <label asp-for="newReviewModel.MovieId"></label>
+            </div>
+            <div class="col-10">
+                <select class="form-control" asp-for="newReviewModel.MovieId" asp-items="@Model.Movies"></select>
+            </div>
+        </div>
+
+        <!-- Date Watched -->
+        <div class="row m-2">
+            <div class="col-2">
+                <label asp-for="newReviewModel.DatePosted"></label>
+            </div>
+            <div class="col-10">
+                <input type="date" class="form-control" asp-for="newReviewModel.DatePosted" />
+            </div>
+        </div>
+
+        <!-- Review Content -->
+        <div class="row m-2">
+            <div class="col-2">
+                <label asp-for="newReviewModel.ReviewContent"></label>
+            </div>
+            <div class="col-10">
+                <textarea class="form-control" asp-for="newReviewModel.ReviewContent"></textarea>
+            </div>
+        </div>
+
+        <!-- Rating -->
+        <div class="row m-2">
+            <div class="col-2">
+                <label>Rating</label>
+            </div>
+            <div class="col-10">
+                <div class="rating">
+                    <span class="star" data-rating="1"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="2"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="3"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="4"><i class="bi bi-star"></i></span>
+                    <span class="star" data-rating="5"><i class="bi bi-star"></i></span>
+                </div>
+                <input type="hidden" name="newReviewModel.Rating" id="rating-value" />
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row m-2">
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // JavaScript for rating stars
+        document.addEventListener("DOMContentLoaded", function () {
+            const stars = document.querySelectorAll('.star');
+            const ratingValue = document.getElementById('rating-value');
+            stars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const rating = this.getAttribute('data-rating');
+                    ratingValue.value = rating;
+                    stars.forEach(s => {
+                        if (s.getAttribute('data-rating') <= rating) {
+                            s.innerHTML = '<i class="bi bi-star-fill"></i>';
+                        } else {
+                            s.innerHTML = '<i class="bi bi-star"></i>';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}
