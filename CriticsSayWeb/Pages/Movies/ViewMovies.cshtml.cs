@@ -1,5 +1,6 @@
 using CriticSayBusiness;
 using CriticsSayWeb.Pages.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,6 +9,7 @@ using Microsoft.Data.SqlClient;
 namespace CriticsSayWeb.Pages.Movies
 {
     [BindProperties]
+    [Authorize]
     public class ViewMoviesModel : PageModel
     {
 
@@ -26,6 +28,19 @@ namespace CriticsSayWeb.Pages.Movies
         {
             PopulateMovie(SelectGenreId);
             PopulateGenreDDL();
+        }
+
+        public IActionResult OnPostDelete(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnection()))
+            {
+                string cmdText = "DELETE FROM Movie WHERE MovieId=@itemId";
+                SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddWithValue("itemId", id);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                return RedirectToPage("ViewMovies");
+            }
         }
 
         private void PopulateMovie(object id)

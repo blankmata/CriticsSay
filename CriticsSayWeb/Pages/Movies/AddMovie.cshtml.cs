@@ -1,5 +1,6 @@
 using CriticSayBusiness;
 using CriticsSayWeb.Pages.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -8,6 +9,7 @@ using Microsoft.Data.SqlClient;
 namespace CriticsSayWeb.Pages.Movies
 {
     [BindProperties]
+    [Authorize]
     public class AddMovieModel : PageModel
     {
 
