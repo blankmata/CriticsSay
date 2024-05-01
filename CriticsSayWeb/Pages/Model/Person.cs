@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace CriticsSayWeb.Pages.Model
@@ -20,7 +20,7 @@ namespace CriticsSayWeb.Pages.Model
         public string? Email { get; set; }
         [Required(ErrorMessage = "A password is required")]
         [MinLength(10, ErrorMessage = "The password must be at least 10 characters long.")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$", ErrorMessage = "Password must contain at least one number and both upper and lower case letters")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$", ErrorMessage ="Password must contain at least one number and both upper and lower case letters")]
         [Display(Name = "Password ")]
         public string? Password { get; set; }
         public DateTime LastLoginTime { get; set; }
