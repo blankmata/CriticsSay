@@ -9,7 +9,6 @@ using Microsoft.Data.SqlClient;
 namespace CriticsSayWeb.Pages.Movies
 {
     [BindProperties]
-    [Authorize]
     public class ViewMoviesModel : PageModel
     {
 
