@@ -38,6 +38,35 @@ namespace CriticsSayWeb.Pages.Account
 
                 }
             }
+
+
         }
+        public IActionResult OnPostUpdateProfile()
+        {
+            if (ModelState.IsValid)
+            {
+                string email = HttpContext.User.FindFirstValue(ClaimTypes.Email);
+                using (SqlConnection conn = new SqlConnection(SecurityHelper.GetDBConnection()))
+                {
+                    string cmdText = "UPDATE Person SET FirstName=@firstName, LastName=@lastName " +
+                        "WHERE Email=@email";
+                    SqlCommand cmd = new SqlCommand(cmdText, conn);
+                    cmd.Parameters.AddWithValue("@firstName", profile.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", profile.LastName);
+                    cmd.Parameters.AddWithValue("@email", email); // Using email from claim directly
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                PopulateProfile(); // Refresh profile after update
+                return RedirectToPage("Profile");
+            }
+            else
+            {
+                // ModelState is not valid, return the page with validation errors
+                return Page();
+            }
+        }
+
+
     }
 }
