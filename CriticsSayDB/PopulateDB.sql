@@ -9,8 +9,6 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-USE [CriticSay]
-GO
 SET IDENTITY_INSERT [dbo].[Genre] ON 
 GO
 INSERT [dbo].[Genre] ([GenreId], [GenreName]) VALUES (1, N'Horror')
@@ -60,6 +58,8 @@ INSERT [dbo].[Movie] ([MovieId], [MovieTitle], [MovieDescription], [ReleaseDate]
 GO
 INSERT [dbo].[Movie] ([MovieId], [MovieTitle], [MovieDescription], [ReleaseDate], [MoviePoster], [GenreId]) VALUES (3010, N'Pulp Fiction', N'Vincent Vega (John Travolta) and Jules Winnfield (Samuel L. Jackson) are hitmen with a penchant for philosophical discussions. In this ultra-hip, multi-strand crime movie, their storyline is interwoven with those of their boss, gangster Marsellus Wallace (Ving Rhames) ; his actress wife, Mia (Uma Thurman) ; struggling boxer Butch Coolidge (Bruce Willis) ; master fixer Winston Wolfe (Harvey Keitel) and a nervous pair of armed robbers, "Pumpkin" (Tim Roth) and "Honey Bunny" (Amanda Plummer).', CAST(N'1994-10-14T00:00:00.000' AS DateTime), N'https://www.movieposters.com/cdn/shop/products/950e439404c3d5eddd86ae876cec83bf_949b5045-2503-4883-bcd2-ff1f31f5b14c_480x.progressive.jpg?v=1573588746', 7)
 GO
+INSERT [dbo].[Movie] ([MovieId], [MovieTitle], [MovieDescription], [ReleaseDate], [MoviePoster], [GenreId]) VALUES (5006, N'Over the Hedge', N'When Verne (Araya A Hargate) and fellow woodland friends awake from winter''s hibernation, they find they have some new neighbors: humans, and RJ (Chatchai Plengpanich), an opportunistic raccoon who shows the others how to exploit the suburban bounty laid out before them.', CAST(N'2009-05-26T00:00:00.000' AS DateTime), N'https://i.ebayimg.com/images/g/2esAAOSw6XRhe4JM/s-l1600.jpg', 1)
+GO
 SET IDENTITY_INSERT [dbo].[Movie] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Role] ON 
@@ -67,6 +67,8 @@ GO
 INSERT [dbo].[Role] ([RoleId], [RoleName]) VALUES (1, N'Owner')
 GO
 INSERT [dbo].[Role] ([RoleId], [RoleName]) VALUES (2, N'User')
+GO
+INSERT [dbo].[Role] ([RoleId], [RoleName]) VALUES (3, N'Admin')
 GO
 SET IDENTITY_INSERT [dbo].[Role] OFF
 GO
@@ -78,7 +80,7 @@ INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password],
 GO
 INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (1002, N'David', N'Mata', N'matadavid5499@gmail.com', N'$2a$13$foRpc531Kj5ncH/ZWrEjsuzQban7rmP01BaKKClHGyvbb6ownSjSK', CAST(N'2024-04-01T13:23:30.000' AS DateTime), 2)
 GO
-INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (2003, N'abc', N'abc', N'abc@gmail.com', N'$2a$13$Dg8mfWuODWww0oO8irOFluouUPLyKbvhP1RZ3T6VJXHYHd7.fU9KG', CAST(N'2024-05-01T12:07:09.167' AS DateTime), 2)
+INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (2003, N'abc', N'abc', N'abc@gmail.com', N'$2a$13$Dg8mfWuODWww0oO8irOFluouUPLyKbvhP1RZ3T6VJXHYHd7.fU9KG', CAST(N'2024-05-01T13:24:09.533' AS DateTime), 2)
 GO
 INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (3002, N'ab', N'ab', N'ab@gmail.com', N'$2a$13$s9UseNC8SfcsvL2qbHtT6.WYwYk1MpiubHghHAKlXUYVPJNsa179.', CAST(N'2024-04-24T02:13:55.243' AS DateTime), 2)
 GO
@@ -102,6 +104,12 @@ INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password],
 GO
 INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (7007, N'bruh', N'dude', N'dude@gmail.com', N'$2a$13$IfqZNYp7tvQ.1INGRS9QkuymXrp4IBPXXos60jXW72OMqcXczZO7u', CAST(N'2024-05-01T11:11:19.000' AS DateTime), 2)
 GO
+INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (8005, N'mauri', N'rav', N'maurirav@gmail.com', N'$2a$13$f8JNpecDCZz25SBW2uG1N.P3V/78T962CzoNl3fj2UolaSWcNKDuW', CAST(N'2024-05-01T13:49:46.500' AS DateTime), 2)
+GO
+INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (8006, N'jeff', N'rock', N'jr@gmail.com', N'$2a$13$yFie3BZAoDwMWcC7QcEUuOYC094w25hWLHW1fOokfxJugHgCGW9g2', CAST(N'2024-05-01T13:58:10.057' AS DateTime), 2)
+GO
+INSERT [dbo].[Person] ([PersonId], [FirstName], [LastName], [Email], [Password], [LastLoginTime], [RoleId]) VALUES (9005, N'Jeff ', N'Buckley', N'jeff@gmail.com', N'$2a$13$EaeJ5tX08BD0EXVWhKNCMufIU4LtST1oUJtQv7P4aGvQOgpeIVL.S', CAST(N'2024-05-01T20:32:35.040' AS DateTime), 2)
+GO
 SET IDENTITY_INSERT [dbo].[Person] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Review] ON 
@@ -115,5 +123,13 @@ INSERT [dbo].[Review] ([ReviewId], [ReviewContent], [Rating], [DatePosted], [Mov
 GO
 INSERT [dbo].[Review] ([ReviewId], [ReviewContent], [Rating], [DatePosted], [MovieId]) VALUES (10, N'2nd best star wars film', 5, CAST(N'2024-02-19T00:00:00.000' AS DateTime), 3007)
 GO
+INSERT [dbo].[Review] ([ReviewId], [ReviewContent], [Rating], [DatePosted], [MovieId]) VALUES (1002, N'bad movie', 2, CAST(N'2024-04-28T00:00:00.000' AS DateTime), 3009)
+GO
+INSERT [dbo].[Review] ([ReviewId], [ReviewContent], [Rating], [DatePosted], [MovieId]) VALUES (2002, N'ehh movie', 4, CAST(N'2024-05-01T00:00:00.000' AS DateTime), 3)
+GO
+INSERT [dbo].[Review] ([ReviewId], [ReviewContent], [Rating], [DatePosted], [MovieId]) VALUES (3002, N'this movie is a okay', 3, CAST(N'2024-04-17T00:00:00.000' AS DateTime), 5)
+GO
 SET IDENTITY_INSERT [dbo].[Review] OFF
+GO
+
 GO
