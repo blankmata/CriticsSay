@@ -1,0 +1,27 @@
+﻿@page
+@model CriticsSayWeb.Pages.Account.AdminDashboardModel
+@{
+    Layout = "_LayoutAuthenticate"; // Use the authenticated layout
+}
+
+<div class="container">
+    <h1 class="text-white">Admin Dashboard</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr class="text-white">
+                <th>Email</th>
+                <th>Last Login Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr class="text-white">
+                    <!-- Apply the text-white class to the table row -->
+                    <td>@user.Email</td>
+                    <td>@user.LastLoginTime</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
