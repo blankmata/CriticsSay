@@ -1,0 +1,1 @@
+Team collaborated website where users can login and log the movies they've watched and add reviews for them. This was our chosen project over the duration of the Spring semester in the course Client Web Server Programming
